@@ -114,7 +114,7 @@ class Trainer:
             if scheduler:
                 # Handle different scheduler types
                 if isinstance(scheduler, torch.optim.lr_scheduler.ReduceLROnPlateau):
-                    scheduler.step(val_acc)  # Pass validation accuracy for ReduceLROnPlateau
+                    scheduler.step(metrics=val_acc)  # Pass validation accuracy for ReduceLROnPlateau
                 else:
                     scheduler.step()
             
