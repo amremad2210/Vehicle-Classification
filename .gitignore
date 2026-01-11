@@ -16,8 +16,7 @@ env/
 Thumbs.db
 
 # Data & outputs (don’t commit)
-data/
-outputs/
+
 
 
 # IDE
