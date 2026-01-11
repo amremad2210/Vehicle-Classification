@@ -16,7 +16,7 @@ env/
 Thumbs.db
 
 # Data & outputs (don’t commit)
-outputs/
+outputs/checkpoints/
 
 
 # IDE
