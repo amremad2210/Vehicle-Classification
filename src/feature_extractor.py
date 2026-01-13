@@ -65,7 +65,8 @@ class VehicleFeatureExtractor:
         stats_dim = 12 * 3 * 2
         
         # Edge features
-        edge_dim = 10
+        # edge features returned: density, mean, std, 4 quadrant densities, horiz_proj, vert_proj => 9
+        edge_dim = 9
         
         return {
             'hog': hog_dim,
@@ -185,22 +186,41 @@ class VehicleFeatureExtractor:
         """
         features = []
         
+        # Helper function to safely compute variation
+        def safe_variation(data):
+            try:
+                mean_val = np.mean(data)
+                if mean_val == 0 or np.isnan(mean_val):
+                    return 0.0
+                var = stats.variation(data)
+                return 0.0 if np.isnan(var) or np.isinf(var) else float(var)
+            except:
+                return 0.0
+        
+        # Helper function to safely compute stats
+        def safe_stat(func, data, default=0.0):
+            try:
+                val = func(data)
+                return default if np.isnan(val) or np.isinf(val) else float(val)
+            except:
+                return default
+        
         # RGB statistics
         for channel in range(3):
             ch_data = image[:, :, channel].ravel()
             features.extend([
-                np.mean(ch_data),
-                np.std(ch_data),
-                stats.skew(ch_data),
-                stats.kurtosis(ch_data),
-                np.median(ch_data),
-                np.min(ch_data),
-                np.max(ch_data),
-                np.percentile(ch_data, 25),
-                np.percentile(ch_data, 75),
-                np.ptp(ch_data),  # peak-to-peak (range)
-                stats.iqr(ch_data),  # interquartile range
-                stats.variation(ch_data) if np.mean(ch_data) != 0 else 0  # coefficient of variation
+                safe_stat(np.mean, ch_data),
+                safe_stat(np.std, ch_data),
+                safe_stat(stats.skew, ch_data),
+                safe_stat(stats.kurtosis, ch_data),
+                safe_stat(np.median, ch_data),
+                safe_stat(np.min, ch_data),
+                safe_stat(np.max, ch_data),
+                safe_stat(lambda x: np.percentile(x, 25), ch_data),
+                safe_stat(lambda x: np.percentile(x, 75), ch_data),
+                safe_stat(np.ptp, ch_data),
+                safe_stat(stats.iqr, ch_data),
+                safe_variation(ch_data)
             ])
         
         # HSV statistics
@@ -208,21 +228,21 @@ class VehicleFeatureExtractor:
         for channel in range(3):
             ch_data = hsv[:, :, channel].ravel()
             features.extend([
-                np.mean(ch_data),
-                np.std(ch_data),
-                stats.skew(ch_data),
-                stats.kurtosis(ch_data),
-                np.median(ch_data),
-                np.min(ch_data),
-                np.max(ch_data),
-                np.percentile(ch_data, 25),
-                np.percentile(ch_data, 75),
-                np.ptp(ch_data),
-                stats.iqr(ch_data),
-                stats.variation(ch_data) if np.mean(ch_data) != 0 else 0
+                safe_stat(np.mean, ch_data),
+                safe_stat(np.std, ch_data),
+                safe_stat(stats.skew, ch_data),
+                safe_stat(stats.kurtosis, ch_data),
+                safe_stat(np.median, ch_data),
+                safe_stat(np.min, ch_data),
+                safe_stat(np.max, ch_data),
+                safe_stat(lambda x: np.percentile(x, 25), ch_data),
+                safe_stat(lambda x: np.percentile(x, 75), ch_data),
+                safe_stat(np.ptp, ch_data),
+                safe_stat(stats.iqr, ch_data),
+                safe_variation(ch_data)
             ])
         
-        return np.array(features)
+        return np.nan_to_num(np.array(features, dtype=float), nan=0.0, posinf=0.0, neginf=0.0)
     
     def extract_edge_features(self, image: np.ndarray) -> np.ndarray:
         """
@@ -272,7 +292,7 @@ class VehicleFeatureExtractor:
             vert_proj
         ]
         
-        return np.array(features)
+        return np.nan_to_num(np.array(features, dtype=float), nan=0.0, posinf=0.0, neginf=0.0)
     
     def extract_all_features(self, image_path: Path) -> np.ndarray:
         """
@@ -313,6 +333,9 @@ class VehicleFeatureExtractor:
             stat_feat,
             edge_feat
         ])
+        
+        # Replace any remaining NaN or Inf values with 0
+        features = np.nan_to_num(features, nan=0.0, posinf=0.0, neginf=0.0)
         
         return features
     

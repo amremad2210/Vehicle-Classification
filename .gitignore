@@ -17,7 +17,8 @@ Thumbs.db
 
 # Data & outputs (don’t commit)
 outputs/checkpoints/
-
+data/featuresdata/raw/
+data/splits/train_backup*/
 
 # IDE
 .vscode/
