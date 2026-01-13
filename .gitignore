@@ -16,6 +16,7 @@ env/
 Thumbs.db
 
 # Data & outputs (don’t commit)
+data/*
 outputs/checkpoints/
 data/featuresdata/raw/
 data/splits/train_backup*/

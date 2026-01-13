@@ -1,0 +1,306 @@
+{
+  "method": "pca",
+  "model": "rbf_svm",
+  "n_features": 1058,
+  "fit_seconds": 0.7871367931365967,
+  "train": {
+    "acc": 0.9992526158445441,
+    "f1_macro": 0.9996914426470652,
+    "f1_weighted": 0.9992519406002847
+  },
+  "val": {
+    "acc": 0.6596491228070176,
+    "f1_macro": 0.34315682654215457,
+    "f1_weighted": 0.6237344301484373
+  },
+  "test": {
+    "acc": 0.6195286195286195,
+    "f1_macro": 0.3286067018460653,
+    "f1_weighted": 0.5949290947726708
+  },
+  "test_report": {
+    "class_01_motorcycle": {
+      "precision": 0.9117647058823529,
+      "recall": 0.7045454545454546,
+      "f1-score": 0.7948717948717948,
+      "support": 44.0
+    },
+    "class_02_passenger_car": {
+      "precision": 0.8706896551724138,
+      "recall": 0.8347107438016529,
+      "f1-score": 0.8523206751054853,
+      "support": 121.0
+    },
+    "class_03_four_tire_single_unit": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 10.0
+    },
+    "class_04_bus": {
+      "precision": 0.3229166666666667,
+      "recall": 0.9117647058823529,
+      "f1-score": 0.47692307692307695,
+      "support": 34.0
+    },
+    "class_05_two_axle_six_tire_single_unit": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 14.0
+    },
+    "class_06_three_axle_single_unit": {
+      "precision": 0.4,
+      "recall": 0.2222222222222222,
+      "f1-score": 0.2857142857142857,
+      "support": 18.0
+    },
+    "class_07_four_or_more_axle_single_unit": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 5.0
+    },
+    "class_08_four_or_less_axle_single_trailer": {
+      "precision": 1.0,
+      "recall": 0.2,
+      "f1-score": 0.3333333333333333,
+      "support": 10.0
+    },
+    "class_09_five_axle_tractor_semitrailer": {
+      "precision": 0.75,
+      "recall": 0.23076923076923078,
+      "f1-score": 0.35294117647058826,
+      "support": 13.0
+    },
+    "class_10_six_or_more_axle_single_trailer": {
+      "precision": 0.75,
+      "recall": 0.3,
+      "f1-score": 0.42857142857142855,
+      "support": 10.0
+    },
+    "class_11_five_or_less_axle_multi_trailer": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 6.0
+    },
+    "class_13_seven_or_more_axle_multi_trailer": {
+      "precision": 0.2903225806451613,
+      "recall": 0.75,
+      "f1-score": 0.4186046511627907,
+      "support": 12.0
+    },
+    "accuracy": 0.6195286195286195,
+    "macro avg": {
+      "precision": 0.4413078006972162,
+      "recall": 0.3461676964350761,
+      "f1-score": 0.3286067018460653,
+      "support": 297.0
+    },
+    "weighted avg": {
+      "precision": 0.6544920301989704,
+      "recall": 0.6195286195286195,
+      "f1-score": 0.5949290947726708,
+      "support": 297.0
+    }
+  },
+  "test_confusion_matrix": [
+    [
+      31,
+      5,
+      0,
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      6
+    ],
+    [
+      3,
+      101,
+      0,
+      15,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1
+    ],
+    [
+      0,
+      6,
+      0,
+      3,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      0,
+      0,
+      31,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2
+    ],
+    [
+      0,
+      2,
+      0,
+      8,
+      0,
+      4,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      13,
+      0,
+      4,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      0,
+      0,
+      3,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2
+    ],
+    [
+      0,
+      0,
+      0,
+      6,
+      0,
+      1,
+      0,
+      2,
+      0,
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      1,
+      0,
+      5,
+      0,
+      0,
+      0,
+      0,
+      3,
+      0,
+      0,
+      4
+    ],
+    [
+      0,
+      1,
+      0,
+      4,
+      0,
+      0,
+      0,
+      0,
+      1,
+      3,
+      0,
+      1
+    ],
+    [
+      0,
+      0,
+      0,
+      3,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      3
+    ],
+    [
+      0,
+      0,
+      0,
+      3,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      9
+    ]
+  ],
+  "labels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "target_names": [
+    "class_01_motorcycle",
+    "class_02_passenger_car",
+    "class_03_four_tire_single_unit",
+    "class_04_bus",
+    "class_05_two_axle_six_tire_single_unit",
+    "class_06_three_axle_single_unit",
+    "class_07_four_or_more_axle_single_unit",
+    "class_08_four_or_less_axle_single_trailer",
+    "class_09_five_axle_tractor_semitrailer",
+    "class_10_six_or_more_axle_single_trailer",
+    "class_11_five_or_less_axle_multi_trailer",
+    "class_13_seven_or_more_axle_multi_trailer"
+  ]
+}
