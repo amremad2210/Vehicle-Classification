@@ -1,0 +1,43 @@
+VEHICLE CLASSIFICATION PROJECT - FINAL RESULTS SUMMARY
+================================================================================
+
+Total Experiments: 77
+Best Model: logreg on pca features
+Best Test Accuracy: 0.6835
+Best Test F1-Macro: 0.4376
+
+Detailed results saved in:
+  - c:\Users\amrem\Documents\Engineering Year 4\Machine Learning\Project\Vehicle-Classification\outputs\traditional_ml\final_comprehensive_results.csv
+  - c:\Users\amrem\Documents\Engineering Year 4\Machine Learning\Project\Vehicle-Classification\outputs\traditional_ml\top10_models.csv
+
+Visualizations saved in:
+  - confidence_analysis_efficientnet.png
+  - confusion_class_02_passenger_car_to_class_03_four_tire_single_unit_efficientnet.png
+  - confusion_matrix_best_traditional_ml.png
+  - confusion_matrix_test.png
+  - confusion_matrix_test_efficientnet.png
+  - confusion_matrix_test_resnet18.png
+  - confusion_matrix_test_resnet34.png
+  - confusion_matrix_val.png
+  - confusion_matrix_val_efficientnet.png
+  - confusion_matrix_val_resnet18.png
+  - confusion_matrix_val_resnet34.png
+  - errors_class_07_four_or_more_axle_single_unit_efficientnet.png
+  - feature_correlation.png
+  - feature_distributions.png
+  - feature_method_comparison.png
+  - feature_selection_comparison.png
+  - feature_selection_overlap.png
+  - overfitting_analysis.png
+  - paradigm_comparison.png
+  - pca_models_comparison.png
+  - per_class_performance.png
+  - sample_batch.png
+  - sample_batch_efficientnet.png
+  - sample_batch_resnet18.png
+  - sample_batch_resnet34.png
+  - time_accuracy_tradeoff.png
+  - training_history.png
+  - training_history_efficientnet.png
+  - training_history_resnet18.png
+  - training_history_resnet34.png
